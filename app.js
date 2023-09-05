@@ -18,10 +18,17 @@ button.addEventListener("click", () => {
   } else {
     error.style.display = "block";
     error.style.color = "red";
-    // email.style.borderColor = "red";
-    email.style.border = "none";
     email.classList.add("error-state");
   }
+
+  email.addEventListener("click", () => {
+    if (email.classList.contains("error-state")) {
+      email.value = "";
+      error.style.display = "none";
+      email.style.border = "block";
+      email.classList.remove("error-state");
+    }
+  });
 });
 
 disButton.addEventListener("click", () => {
